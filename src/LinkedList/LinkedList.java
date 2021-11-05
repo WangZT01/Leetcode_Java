@@ -1,34 +1,35 @@
 package LinkedList;
 
-class ListNode <T>{
-	
+
+public class LinkedList <T>{
+
 	T t;
-	ListNode<T> next;
+	LinkedList<T> next;
 	int size = 1;
-	ListNode<T> head;
-	public ListNode(T t) {
+	LinkedList<T> head;
+	public LinkedList(T t) {
 		this.t = t;
 		this.next = null;
 	}
-	public ListNode(T t, ListNode<T> next) {
+	public LinkedList(T t, LinkedList<T> next) {
 		this.t = t;
 		this.next = next;
 	}
-	
+
 	public void add(T t) {
-		ListNode<T> node = new ListNode<T>(t);
-		ListNode<T> nextnode = this;
+		LinkedList<T> node = new LinkedList<T>(t);
+		LinkedList<T> nextnode = this;
 		while(nextnode.next != null) {
 			nextnode = nextnode.next;
 		}
 		nextnode.next = node;
 		this.size++;
 	}
-	
+
 	public void insert(T t, int index){
-		
-		ListNode<T> node = new ListNode<T>(t);
-		ListNode<T> temp = this;
+
+		LinkedList<T> node = new LinkedList<T>(t);
+		LinkedList<T> temp = this;
 		if(index > size){
 			add(t);
 		}
@@ -43,29 +44,16 @@ class ListNode <T>{
 			temp.next = node;
 			this.size++;
 		}
-		
+
 	}
-	
+
 	public void print() {
-		ListNode<T> nextnode = this;
+		LinkedList<T> nextnode = this;
 		while(nextnode.next != null) {
 			System.out.print(nextnode.t + " ");
 			nextnode = nextnode.next;
 		}
 		System.out.print(nextnode.t + " ");
-	}
-	
-}
-
-public class LinkedList {
-	
-	public static void  main(String args[]) {
-		
-		ListNode node = new ListNode(0);
-		for(int i = 1; i < 5; i++) {
-			node.add(i);
-		}
-		node.print();
 	}
 	
 }
