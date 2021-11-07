@@ -1,42 +1,64 @@
 package LinkedList;
 
+import java.util.ArrayList;
+
 public class PalindromeLinkedList_234 {
+
 
     public static boolean isPalindrome(ListNode head) {
 
-        if(head == null){
-            return true;
+        ArrayList<Integer> a = new ArrayList<Integer>();
+
+        while(head.next != null){
+            a.add(head.val);
+            head = head.next;
         }
-        int t1 = head.val;
-        int t2 = head.val;
-        if(head.next != null){
-            ListNode last = ipr(head);
-            t2 = last.val;
-            //ipr(head);
+        a.add(head.val);
+        boolean result = true;
+
+        for(int i = 0 ; i < a.size()-i-1 ; i++){
+            if(a.get(i) != a.get(a.size()-i-1) ){
+                return false;
+            }
         }
-        //System.out.println(t1 + " " + t2);
-        boolean result = (t1 == t2);
-        //System.out.println(result);
-        return result && isPalindrome(head.next);
-
+        return result;
     }
-
-    public static ListNode ipr(ListNode head, ListNode last){
-
-        if(head.next != null){
-            last = ipr(head,head.next);
-
-        }
-        boolean result = (head.val == last.val);
-        System.out.println(result);
-        return last;
-    }
-
-    public static void  main(String args[]) {
-
-        ListNode n = new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(1))));
-        boolean m = isPalindrome(n);
-        System.out.println(m);
-    }
-
 }
+
+/**
+ * class Solution {
+ *     public boolean isPalindrome(ListNode head) {
+ *
+ *         ListNode slow = head;
+ *         ListNode fast = head;
+ *
+ *         while(fast!=null && fast.next!=null){
+ *             fast = fast.next.next;
+ *             slow = slow.next;
+ *         }
+ *
+ *         if(fast!=null){
+ *             slow = slow.next;
+ *         }
+ *         ListNode right = reverse(slow);
+ *         ListNode left = head;
+ *         while(right!=null && left!=null){
+ *             if(right.val!= left.val) return false;
+ *             right = right.next;
+ *             left = left.next;
+ *         }
+ *         return true;
+ *     }
+ *
+ *
+ *     ListNode reverse(ListNode node){
+ *         ListNode prev = null;
+ *         while(node!=null){
+ *             ListNode temp = node.next;
+ *             node.next = prev;
+ *             prev = node;
+ *             node = temp;
+ *         }
+ *         return prev;
+ *     }
+ */
