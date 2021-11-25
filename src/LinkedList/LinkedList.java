@@ -46,6 +46,38 @@ public class LinkedList <T>{
 		}
 
 	}
+	public LinkedList findNodeByIndex(int index) {
+		if (index < 0 || index > size) {
+			throw new IndexOutOfBoundsException("链表越界");
+		}
+		LinkedList current = head;
+		int t = 0;
+		while (current != null) {
+			if (t == index) {
+				break;
+			}
+			current = current.next;
+			t++;
+		}
+		return current;
+	}
+
+	public T deleteNode(int index) {
+		LinkedList dNode = null;
+		if (index < 0 || index > size - 1) {
+			throw new IndexOutOfBoundsException("链表越界");
+		}
+		if (index == 0) {
+			dNode = head;
+			head = head.next;
+		} else {
+			LinkedList pre = findNodeByIndex(index - 1);//获取要删除的节点的前一个节点
+			dNode = pre.next;//要删除的节点就是pre的next指向的节点
+			pre.next = dNode.next;//删除以后pre的next指向被删除节点之前所指向的next
+			dNode.next = null;
+		}
+		return (T) dNode.t;
+	}
 
 	public void print() {
 		LinkedList<T> nextnode = this;
