@@ -1,5 +1,7 @@
 package graph;
 
+import java.util.Queue;
+
 public class ListDG {
 
     private class ENode{
@@ -81,5 +83,12 @@ public class ListDG {
         System.out.println();
     }
 
-
+    public int topologicalSort(){
+        int index = 0;
+        int num = mVexs.length;
+        int[] ins;
+        char[] tops;
+        Queue<Integer> queue;
+        return 0;
+    }
 }
