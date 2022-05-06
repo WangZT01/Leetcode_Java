@@ -19,4 +19,43 @@ public class CountingBits_338 {
         }
         return a;
     }
+
+    /*
+    Number in binary add a zero means it is twice bigger than before.
+
+    class Solution {
+public int[] countBits(int n) {
+int x = 2;
+int i = 2;
+int[] ar = new int[n+1];
+
+    if(n==0)
+    {
+        ar[0] = 0;
+        return ar;
+    }
+    if(n==1)
+    {
+        ar[0] = 0;
+        ar[1] = 1;
+        return ar;
+    }
+
+    ar[0] = 0;
+    ar[1] = 1;
+    while(i<=n)
+    {
+        if(x%2==0)
+        {
+            ar[i] = ar[i/2];
+        }else{
+            ar[i] = 1+ar[i/2];
+        }
+        i++;
+        x++;
+    }
+    return ar;
+
+}
+     */
 }
