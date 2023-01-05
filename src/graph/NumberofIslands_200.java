@@ -9,6 +9,7 @@ public class NumberofIslands_200 {
         int m = grid.length;
         int n = grid[0].length;
         int num = 0;
+        int p = 0;
         boolean visited[][] = new boolean[m][n];
 
         for(int i = 0; i < m; i++){
