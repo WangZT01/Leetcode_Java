@@ -6,6 +6,7 @@ public class MinStack_155 {
     int min = Integer.MAX_VALUE;
     Stack<Integer> stack = new Stack<Integer>();
     public void push(int x) {
+
         // only push the old minimum value when the current
         // minimum value changes after pushing the new value x
         if(x <= min){
