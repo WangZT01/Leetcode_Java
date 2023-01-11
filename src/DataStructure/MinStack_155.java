@@ -26,6 +26,7 @@ public class MinStack_155 {
         return stack.peek();
     }
 
+
     public int getMin() {
         return min;
     }
