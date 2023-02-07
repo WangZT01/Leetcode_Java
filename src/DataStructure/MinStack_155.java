@@ -8,6 +8,7 @@ public class MinStack_155 {
     public void push(int x) {
 
         // only push the old minimum value when the current
+
         // minimum value changes after pushing the new value x
         if(x <= min){
             stack.push(min);
